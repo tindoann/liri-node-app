@@ -22,9 +22,9 @@ spotify
     let results = data.tracks.items;
     for (let k = 0; k < 5; k++) {
       console.log(`
-      Artists: ${data.tracks.items[k].album.artists[0].name}
-      Preview: ${data.tracks.items[k].preview_url}
-      Album: ${data.tracks.items[k].album.name}
+      Artists: ${results[k].album.artists[0].name}
+      Preview: ${results[k].preview_url}
+      Album: ${results[k].album.name}
     `)
     }
   }
