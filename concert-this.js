@@ -1,41 +1,28 @@
-  
-function movieThis(movie) {
+function concertThis(band) {
 
-  const axios = require("axios");
-
-  if (movie === false) {
-    movie = 'Mr. Nobody';
-    console.log(`If you haven't watched Mr. Nobody, then you should: http://www.imdb.com/title/tt0485947/`);
-    console.log(`It's on Netflix!`);
-  }
-
-  let movieName = "";
+  const axios = require('axios');
+  const moment = require('moment');
   const nodeArgs = process.argv;
 
-
+  let artist = "";
   for (var i = 2; i < nodeArgs.length; i++) {
     if (i > 2 && i < nodeArgs.length) {
-      movieName = movieName + "+" + nodeArgs[i];
+      artist = artist + "+" + nodeArgs[j];
     } else {
-      movieName += nodeArgs[i]; // movieName = movieName + nodeArgs[i];
+      artist += nodeArgs[i];
     }
 
-
-    // Then run a request with axios to the OMDB API with the movie specified
-    var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+    let queryUrl = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"
 
     axios.get(queryUrl).then(
         function (response) {
+          for (let j = 0; j < 5; j++) {
           console.log(`
-    Title: ${response.data.Title}
-    Year: ${response.data.Year}
-    IMDB Rating: ${response.data.Rated}
-    Rotten Tomatoes Rating: ${response.data.Ratings[1].Value}
-    Country: ${response.data.Country}
-    Laguage: ${response.data.Language}
-    Plot: ${response.data.Plot}
-    Actor: ${response.data.Actors}
-    `); 
+      Venue: ${response.data[j].venue.name}
+      Venue location: ${response.data[j].venue.city}
+      Event date: ${moment(response.data[j].datetime).format('MM/DD/YYYY')}
+      `)
+          }
         })
       .catch(function (error) {
         if (error.response) {
@@ -59,5 +46,4 @@ function movieThis(movie) {
       })
   }
 };
-
-movieThis();
+concertThis();
