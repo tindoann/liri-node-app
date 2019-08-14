@@ -3,7 +3,7 @@ require('dotenv').config();
 // Required packages
 const keys = require('./keys.js');
 const axios = require('axios');
-const fs = require("fs");
+const fs = require('fs');
 const moment = require('moment');
 const Spotify = require('node-spotify-api');
 
@@ -42,7 +42,7 @@ switch (options) {
 
 // BANDSINTOWN
 function concertThis(query) {
-  let queryUrl = "https://rest.bandsintown.com/artists/" + query + "/events?app_id=codingbootcamp"
+  let queryUrl = 'https://rest.bandsintown.com/artists/' + query + '/events?app_id=codingbootcamp'
 
   axios.get(queryUrl).then(
       function (response) {
@@ -84,7 +84,7 @@ function spotifyThis(query) {
   let spotify = new Spotify(keys.spotify);
 
   if (!query) {
-    query == 'The Sign Ace of Base';
+    query = 'The Sign Ace of Base';
   }
 
   spotify.search({
@@ -116,7 +116,7 @@ function movieThis(query) {
   }
 
   // Then run a request with axios to the OMDB API with the movie specified
-  var queryUrl = "http://www.omdbapi.com/?t=" + query + "&y=&plot=short&apikey=trilogy";
+  var queryUrl = 'http://www.omdbapi.com/?t=' + query + '&y=&plot=short&apikey=trilogy';
 
   axios.get(queryUrl).then(
       function (response) {
