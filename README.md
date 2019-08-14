@@ -1,3 +1,3 @@
 # liri-node-app
 
-![]images./start.png)
+![]images/start.png)
