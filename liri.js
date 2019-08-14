@@ -161,8 +161,8 @@ function doThis() {
       return console.log(err);
     }
     dataArr = data.split(',');
-    for (var i = 0; i < dataArr.length; i++) {
-      console.log(dataArr[i]);
+    for (var n = 0; n < dataArr.length; n++) {
+      console.log(dataArr[n]);
     }
   })
 }
