@@ -10,6 +10,10 @@ SIRI is a Speech Interpretation and Recognition Interface, LIRI is a Language In
 
 - Select from three main options: concert-this, movie-this, spotify-this-song; 
 
-- The format to search is 'node liri [options] [query]' ex. node spotify-this-song young the giant
+- The format to search is 'node liri [options] [query]' ex. node spotify-this-song day n nite
 
 ![](images/spotify_query.png)
+
+If spotify query is left blink, Ace of Base - The Sign, will automatically default to query
+
+![](images/spotify_default.png)
