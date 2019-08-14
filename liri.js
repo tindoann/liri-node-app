@@ -38,6 +38,9 @@ switch (options) {
   case 'do-what-it-says':
     doThis();
     break;
+
+  default: 
+    console.log(`The format to enter a line command: [node liri concert-this artist]`)
 }
 
 // BANDSINTOWN
@@ -47,6 +50,7 @@ function concertThis(query) {
   axios.get(queryUrl).then(
       function (response) {
         let results = response.data;
+        // For loops to go through all possible entries from response
         for (let j = 0; j < 5; j++) {
           console.log(`
             Venue: ${results[j].venue.name}
@@ -94,6 +98,7 @@ function spotifyThis(query) {
     })
     .then(function (response) {
       let results = response.tracks.items;
+      // For loops to go through all possible entries from response
       for (let k = 0; k < 5; k++) {
         console.log(`
           Artist(s): ${results[k].album.artists[0].name}
