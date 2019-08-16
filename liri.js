@@ -43,7 +43,8 @@ switch (options) {
     console.log(`The format to enter a line command: [node liri concert-this artist]`)
 }
 
-// BANDSINTOWN
+// BANDSINTOWN - module.exports = conertThis -> const concertImport = require('./concertThis');
+
 function concertThis(query) {
   let queryUrl = 'https://rest.bandsintown.com/artists/' + query + '/events?app_id=codingbootcamp'
 
@@ -81,9 +82,8 @@ function concertThis(query) {
     })
 };
 
+// SPOTIFY - module.exports = spotifyThis -> const spotifyImport = require('./spotifyThis');
 
-
-// SPOTIFY 
 function spotifyThis(query) {
   let spotify = new Spotify(keys.spotify);
 
@@ -105,7 +105,7 @@ function spotifyThis(query) {
           Song: ${results[0].name}
           Preview: ${results[k].preview_url}
           Album: ${results[k].album.name}
-      `)
+        `)
       }
     })
     .catch(function (err) {
@@ -113,7 +113,8 @@ function spotifyThis(query) {
     })
 };
 
-// OMDB 
+// OMDB - module.exports = movieThis -> const movieImport = require('./movieThis');
+
 function movieThis(query) {
   if (!query) {
     query = 'Mr. Nobody';
@@ -126,17 +127,17 @@ function movieThis(query) {
 
   axios.get(queryUrl).then(
       function (response) {
-        let results = response.data;
+        let {Title, Year, Rated, Ratings, Country, Language, Plot, Actors} = response.data;
         console.log(`
-          Title: ${results.Title}
-          Year: ${results.Year}
-          IMDB Rating: ${results.Rated}
-          Rotten Tomatoes Rating: ${results.Ratings[1].Value}
-          Country: ${results.Country}
-          Laguage: ${results.Language}
-          Plot: ${results.Plot}
-          Actor: ${results.Actors}
-  `);
+          Title: ${Title}
+          Year: ${Year}
+          IMDB Rating: ${Rated}
+          Rotten Tomatoes Rating: ${Ratings[1].Value}
+          Country: ${Country}
+          Language: ${Language}
+          Plot: ${Plot}
+          Actor: ${Actors}
+        `);
       })
     .catch(function (error) {
       if (error.response) {
@@ -172,3 +173,7 @@ function doThis() {
     }
   })
 }; 
+
+
+
+
