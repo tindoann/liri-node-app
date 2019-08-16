@@ -92,7 +92,7 @@ function spotifyThis(query) {
   }
 
   spotify.search({
-      type: 'track',
+      type: 'track' || 'artist' || 'album',
       query: query,
       limit: 5
     })
@@ -102,6 +102,7 @@ function spotifyThis(query) {
       for (let k = 0; k < 5; k++) {
         console.log(`
           Artist(s): ${results[k].album.artists[0].name}
+          Song: ${results[0].name}
           Preview: ${results[k].preview_url}
           Album: ${results[k].album.name}
       `)
@@ -170,4 +171,4 @@ function doThis() {
       console.log(dataArr[n]);
     }
   })
-}
+}; 
