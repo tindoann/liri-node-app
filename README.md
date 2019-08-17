@@ -1,7 +1,7 @@
 # Liri Node App aka Liri Bot
 
 ## Overview
-SIRI is a Speech Interpretation and Recognition Interface, simimarly, LIRI is a Language Interpretation and Recognition Interface. LIRI is a command line Node app that takes in parameters and gives users back data in the terminal. Liri takes searches through API databases from spotify, omdb, and bandsintown. 
+SIRI is a Speech Interpretation and Recognition Interface, simimarly, LIRI is a Language Interpretation and Recognition Interface. LIRI is a command line Node app that takes in parameters and gives users back data in the terminal. The app takes searches through API databases from spotify, omdb, and bandsintown. 
 
 ## Requirements
 
